@@ -1,6 +1,8 @@
 import { FaStar } from "react-icons/fa";
 
 export default function TaskList({ tasks }) {
+
+  // Define the colors for each tag
   const tagColors = {
     web: "bg-red-500",
     javascript: "bg-yellow-500",
@@ -12,6 +14,7 @@ export default function TaskList({ tasks }) {
   return (
     <div className="overflow-auto">
       <table className="table-fixed overflow-auto xl:w-full">
+
         <thead>
           <tr>
             <th className="p-4 pb-8 text-sm font-semibold capitalize w-[48px]"></th>
@@ -37,15 +40,19 @@ export default function TaskList({ tasks }) {
             </th>
           </tr>
         </thead>
+
         <tbody>
           {tasks.map((task) => (
             <tr className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2">
+
               <td>
                 {task.isFavorite ? 
                   <FaStar className="text-amber-300" /> : <FaStar className="text-gray-300" />
                 }
               </td>
+
               <td>{task.title}</td>
+
               <td>
                 <div>{task.description}</div>
               </td>
@@ -68,6 +75,7 @@ export default function TaskList({ tasks }) {
               </td>
 
               <td className="text-center">{task.priority}</td>
+
               <td>
                 <div className="flex items-center justify-center space-x-3">
                   <button className="text-red-500">Delete</button>
@@ -77,6 +85,7 @@ export default function TaskList({ tasks }) {
             </tr>
           ))}
         </tbody>
+        
       </table>
     </div>
   );
